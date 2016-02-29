@@ -6,8 +6,6 @@
 //  Copyright © 2016 sodas. All rights reserved.
 //
 
-import Foundation
-
 /// Steps are inputs from users. It would be a number or an arithmetic operation, like add.
 public enum Step<ValueType: IntegerLiteralConvertible> {
     // Following `typealias` would be changed to `associatedtype` in Swift 2.2
