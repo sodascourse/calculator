@@ -6,3 +6,5 @@ You can use `CocoaPods` to integrate this Core by adding following lines to your
 ```ruby
 pod 'CalculatorCore', :git => 'https://github.com/sodascourse/calculator.git', :branch => 'master'
 ```
+
+Or just drag this file `CalculatorCore/CalculatorCore.swift` into your Xcode project.
