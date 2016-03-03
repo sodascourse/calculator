@@ -28,6 +28,17 @@ do {
     print("Fatal error ...")
 }
 
+realCore = Core()  // Reset it
+do {
+    try realCore.addStep(1)
+    try realCore.addStep(/)
+    try realCore.addStep(2)
+    // `result` should be `zero`.
+    let result = try realCore.calculate()
+} catch {
+    print("Fatal error ...")
+}
+
 //: A core which works with only integer
 
 var integerCore: Core<Int> = Core()
@@ -40,4 +51,3 @@ do {
 } catch {
     print("Fatal error ...")
 }
-
