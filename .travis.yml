@@ -1,6 +1,10 @@
 language: objective-c
 osx_image: xcode7.2
 
+install:
+  - brew update
+  - brew uninstall xctool && brew install xctool
+
 xcode_workspace: Calculator.xcworkspace
 xcode_scheme:
   - Calculator
