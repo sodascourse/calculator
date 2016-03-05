@@ -1,0 +1,8 @@
+language: objective-c
+osx_image: xcode7.2
+
+xcode_workspace: Calculator.xcworkspace
+xcode_scheme:
+  - Calculator
+xcode_sdk:
+  - iphonesimulator
