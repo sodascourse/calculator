@@ -67,8 +67,6 @@
 		FE0ACFF51C82DBE3009FEACD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE0ACFF81C82DBE3009FEACD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE0ACFFA1C82DBE3009FEACD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FE0AD0031C82DBE3009FEACD /* CalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTests.swift; sourceTree = "<group>"; };
-		FE0AD0051C82DBE3009FEACD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE0AD0131C82E202009FEACD /* CalculatorCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CalculatorCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE0AD0171C82E202009FEACD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE0AD01C1C82E202009FEACD /* CalculatorCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalculatorCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,7 +117,6 @@
 			isa = PBXGroup;
 			children = (
 				FE0ACFED1C82DBE3009FEACD /* Calculator */,
-				FE0AD0021C82DBE3009FEACD /* CalculatorTests */,
 				FE0AD0141C82E202009FEACD /* CalculatorCore */,
 				FE0AD0221C82E202009FEACD /* CalculatorCoreTests */,
 				FE0AD0361C82E216009FEACD /* CalculatorUITests */,
@@ -150,15 +147,6 @@
 				FE0ACFFA1C82DBE3009FEACD /* Info.plist */,
 			);
 			path = Calculator;
-			sourceTree = "<group>";
-		};
-		FE0AD0021C82DBE3009FEACD /* CalculatorTests */ = {
-			isa = PBXGroup;
-			children = (
-				FE0AD0031C82DBE3009FEACD /* CalculatorTests.swift */,
-				FE0AD0051C82DBE3009FEACD /* Info.plist */,
-			);
-			path = CalculatorTests;
 			sourceTree = "<group>";
 		};
 		FE0AD0141C82E202009FEACD /* CalculatorCore */ = {
