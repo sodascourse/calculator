@@ -35,7 +35,6 @@
                                                 <state key="normal" title="7">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
-                                                <state key="selected" backgroundImage="operand-pressed"/>
                                                 <connections>
                                                     <action selector="numericButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fWB-Ih-8Q7"/>
                                                 </connections>
@@ -50,7 +49,6 @@
                                                 <state key="normal" title="8">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
-                                                <state key="selected" backgroundImage="operand-pressed"/>
                                                 <connections>
                                                     <action selector="numericButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="L7d-G0-2uN"/>
                                                 </connections>
@@ -65,7 +63,6 @@
                                                 <state key="normal" title="9">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
-                                                <state key="selected" backgroundImage="operand-pressed"/>
                                                 <connections>
                                                     <action selector="numericButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uui-Ps-DqP"/>
                                                 </connections>
@@ -105,7 +102,6 @@
                                                 <state key="normal" title="4">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
-                                                <state key="selected" backgroundImage="operand-pressed"/>
                                                 <connections>
                                                     <action selector="numericButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bl6-1k-BYA"/>
                                                 </connections>
@@ -120,7 +116,6 @@
                                                 <state key="normal" title="5">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
-                                                <state key="selected" backgroundImage="operand-pressed"/>
                                                 <connections>
                                                     <action selector="numericButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ewh-4q-ujq"/>
                                                 </connections>
@@ -135,7 +130,6 @@
                                                 <state key="normal" title="6">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
-                                                <state key="selected" backgroundImage="operand-pressed"/>
                                                 <connections>
                                                     <action selector="numericButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cZQ-ap-ZcZ"/>
                                                 </connections>
@@ -175,7 +169,6 @@
                                                 <state key="normal" title="1">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
-                                                <state key="selected" backgroundImage="operand-pressed"/>
                                                 <connections>
                                                     <action selector="numericButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OAK-F7-lAB"/>
                                                 </connections>
@@ -190,7 +183,6 @@
                                                 <state key="normal" title="2">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
-                                                <state key="selected" backgroundImage="operand-pressed"/>
                                                 <connections>
                                                     <action selector="numericButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pOF-se-m1v"/>
                                                 </connections>
@@ -205,7 +197,6 @@
                                                 <state key="normal" title="3">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
-                                                <state key="selected" backgroundImage="operand-pressed"/>
                                                 <connections>
                                                     <action selector="numericButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lVt-w6-nVd"/>
                                                 </connections>
@@ -248,7 +239,6 @@
                                                 <state key="normal" title="0">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
-                                                <state key="selected" backgroundImage="operand-pressed"/>
                                                 <connections>
                                                     <action selector="numericButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Va8-Jy-Xsi"/>
                                                 </connections>
@@ -263,7 +253,6 @@
                                                 <state key="normal" title="00">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
-                                                <state key="selected" backgroundImage="operand-pressed"/>
                                                 <connections>
                                                     <action selector="numericButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dAy-ki-O7M"/>
                                                 </connections>
@@ -278,7 +267,6 @@
                                                 <state key="normal" title="+/-">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
-                                                <state key="selected" backgroundImage="operand-pressed"/>
                                                 <connections>
                                                     <action selector="negativeButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dqf-IE-2Gl"/>
                                                 </connections>
@@ -339,7 +327,4 @@
             <point key="canvasLocation" x="336" y="353"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="operand-pressed" width="50" height="50"/>
-    </resources>
 </document>
