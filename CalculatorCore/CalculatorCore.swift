@@ -30,9 +30,7 @@ public enum CoreError: ErrorType {
  *  See playground for usage
  */
 public struct Core<ValueType: IntegerLiteralConvertible> {
-    public typealias OperandType = Step<ValueType>.OperandType
-    public typealias OperatorType = Step<ValueType>.OperatorType
-    // A valid steps array should be [Operand, Operator, Operand, Operator, Operand, Operator, ..., Operand]
+    // A valid steps array should be [.Operand, .Operator, .Operand, .Operator, .Operand, .Operator, ..., .Operand]
     var steps: [Step<ValueType>] = []
 
     public init() {}
@@ -53,12 +51,13 @@ public struct Core<ValueType: IntegerLiteralConvertible> {
         self.steps.append(.Operator(operation))
     }
 
-    public func calculate() throws -> ValueType {
+    public func calculate() throws -> Step<ValueType>.OperandType {
         guard case .Operand? = self.steps.last else {
             throw CoreError.LastStepIsOperator
         }
 
-        var value: ValueType = 0  // This is the reason why declaring ValueType with IntegerLiteralConvertible
+        // This is the reason why declaring ValueType with IntegerLiteralConvertible
+        var value: Step<ValueType>.OperandType = 0
         var lastOperator: Step<ValueType>.OperatorType? = .None
         for step in self.steps {
             switch step {
