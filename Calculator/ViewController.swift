@@ -62,4 +62,3 @@ class ViewController: UIViewController {
         self.displayLabel.clear()
     }
 }
-
