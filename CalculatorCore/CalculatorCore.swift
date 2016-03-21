@@ -32,6 +32,7 @@ public enum CoreError: ErrorType {
 public struct Core<ValueType: IntegerLiteralConvertible> {
     public typealias OperandType = Step<ValueType>.OperandType
     public typealias OperatorType = Step<ValueType>.OperatorType
+    // A valid steps array should be [Operand, Operator, Operand, Operator, Operand, Operator, ..., Operand]
     var steps: [Step<ValueType>] = []
 
     public init() {}
