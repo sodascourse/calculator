@@ -62,11 +62,7 @@ public struct Core<ValueType: IntegerLiteralConvertible> {
         for step in self.steps {
             switch step {
             case .Operand(let operandValue):
-                if let operatorFunc = lastOperator {
-                    value = operatorFunc(value, operandValue)
-                } else {
-                    value = operandValue
-                }
+                value = lastOperator?(value, operandValue) ?? operandValue
             case .Operator(let operation):
                 lastOperator = operation
             }
