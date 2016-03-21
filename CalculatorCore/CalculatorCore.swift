@@ -8,7 +8,6 @@
 
 /// Steps are inputs from users. It would be a number or an arithmetic operation, like add.
 public enum Step<ValueType: IntegerLiteralConvertible> {
-    // Following `typealias` would be changed to `associatedtype` in Swift 2.2
     public typealias OperandType = ValueType
     public typealias OperatorType = (OperandType, OperandType) -> OperandType
 
@@ -58,13 +57,13 @@ public struct Core<ValueType: IntegerLiteralConvertible> {
             throw CoreError.LastStepIsOperator
         }
 
-        var value: ValueType = 0
+        var value: ValueType = 0  // This is the reason why declaring ValueType with IntegerLiteralConvertible
         var lastOperator: Step<ValueType>.OperatorType? = .None
         for step in self.steps {
             switch step {
             case .Operand(let operandValue):
-                if let _lastOperation = lastOperator {
-                    value = _lastOperation(value, operandValue)
+                if let operatorFunc = lastOperator {
+                    value = operatorFunc(value, operandValue)
                 } else {
                     value = operandValue
                 }
