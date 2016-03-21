@@ -40,11 +40,7 @@ class DisplayLabel: UILabel {
     // MARK: - Negative
 
     var negative: Bool {
-        if let text = self.text {
-            return text.hasPrefix("-")
-        } else {
-            return false
-        }
+        return self.text?.hasPrefix("-") ?? false
     }
 
     func changeSign() {
