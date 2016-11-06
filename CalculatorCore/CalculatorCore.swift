@@ -6,64 +6,52 @@
 //  Copyright © 2016 sodas. All rights reserved.
 //
 
-/// Steps are inputs from users. It would be a number or an arithmetic operation, like add.
-public enum Step<ValueType: IntegerLiteralConvertible> {
-    public typealias OperandType = ValueType
-    public typealias OperatorType = (OperandType, OperandType) -> OperandType
-
-    case Operator(OperatorType)
-    case Operand(OperandType)
+public enum Error: Swift.Error {
+    case invalidStepOrder
 }
 
-/**
- Errors which related to the Core
-
- - StepOrderInconsistency: The steps should be ordered by one operand, one operator, one operand, one operator, ...
- - LastStepIsOperator:     The last step should be an operand when calling `calculation` method
- */
-public enum CoreError: ErrorType {
-    case StepOrderInconsistency
-    case LastStepIsOperator
+public enum Step<Operand, Operator> {
+    case operand(Operand)
+    case `operator`(Operator)
 }
 
-/**
- *  See playground for usage
- */
-public struct Core<ValueType: IntegerLiteralConvertible> {
-    // A valid steps array should be [.Operand, .Operator, .Operand, .Operator, .Operand, .Operator, ..., .Operand]
-    var steps: [Step<ValueType>] = []
+public struct Core<Value> {
+    public typealias Operand = Value
+    public typealias Operator = (Value, Value) -> Value
+    public typealias Step = CalculatorCore.Step<Operand, Operator>
+    public typealias Error = CalculatorCore.Error
+
+    private var steps = [Step]()
 
     public init() {}
 
-    public mutating func addStep(operand: Step<ValueType>.OperandType) throws {
+    public mutating func addStep(_ step: Operand) throws {
         if !self.steps.isEmpty {
-            guard case .Operator? = self.steps.last else {
-                throw CoreError.StepOrderInconsistency
+            guard case .operator? = self.steps.last else {
+                throw Error.invalidStepOrder
             }
         }
-        self.steps.append(.Operand(operand))
+        self.steps.append(.operand(step))
     }
 
-    public mutating func addStep(operation: Step<ValueType>.OperatorType) throws {
-        guard case .Operand? = self.steps.last else {
-            throw CoreError.StepOrderInconsistency
+    public mutating func addStep(_ step: @escaping Operator) throws {
+        guard case .operand? = self.steps.last else {
+            throw Error.invalidStepOrder
         }
-        self.steps.append(.Operator(operation))
+        self.steps.append(.operator(step))
     }
 
-    public func calculate() throws -> Step<ValueType>.OperandType {
-        guard case .Operand? = self.steps.last else {
-            throw CoreError.LastStepIsOperator
+    public func calculate() -> Operand? {
+        guard case .operand? = self.steps.last else {
+            return .none
         }
-
-        // This is the reason why declaring ValueType with IntegerLiteralConvertible
-        var value: Step<ValueType>.OperandType = 0
-        var lastOperator: Step<ValueType>.OperatorType? = .None
+        var value: Operand!
+        var lastOperator: Operator? = .none
         for step in self.steps {
             switch step {
-            case .Operand(let operandValue):
+            case .operand(let operandValue):
                 value = lastOperator?(value, operandValue) ?? operandValue
-            case .Operator(let operation):
+            case .operator(let operation):
                 lastOperator = operation
             }
         }

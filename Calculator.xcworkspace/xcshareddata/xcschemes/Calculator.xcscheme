@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0720"
+   LastUpgradeVersion = "0810"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FE0ACFEA1C82DBE3009FEACD"
+               BlueprintIdentifier = "FE4AB5F71DCD88870074C504"
                BuildableName = "Calculator.app"
                BlueprintName = "Calculator"
                ReferencedContainer = "container:Calculator.xcodeproj">
@@ -32,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FE0AD01B1C82E202009FEACD"
-               BuildableName = "CalculatorCoreTests.xctest"
-               BlueprintName = "CalculatorCoreTests"
+               BlueprintIdentifier = "FE4AB60B1DCD88870074C504"
+               BuildableName = "CalculatorTests.xctest"
+               BlueprintName = "CalculatorTests"
                ReferencedContainer = "container:Calculator.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -42,9 +42,19 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FE0AD0341C82E216009FEACD"
+               BlueprintIdentifier = "FE4AB6161DCD88870074C504"
                BuildableName = "CalculatorUITests.xctest"
                BlueprintName = "CalculatorUITests"
+               ReferencedContainer = "container:Calculator.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FE4AB6351DCD8B4F0074C504"
+               BuildableName = "CalculatorCoreTests.xctest"
+               BlueprintName = "CalculatorCoreTests"
                ReferencedContainer = "container:Calculator.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -52,7 +62,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FE0ACFEA1C82DBE3009FEACD"
+            BlueprintIdentifier = "FE4AB5F71DCD88870074C504"
             BuildableName = "Calculator.app"
             BlueprintName = "Calculator"
             ReferencedContainer = "container:Calculator.xcodeproj">
@@ -75,7 +85,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FE0ACFEA1C82DBE3009FEACD"
+            BlueprintIdentifier = "FE4AB5F71DCD88870074C504"
             BuildableName = "Calculator.app"
             BlueprintName = "Calculator"
             ReferencedContainer = "container:Calculator.xcodeproj">
@@ -94,7 +104,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FE0ACFEA1C82DBE3009FEACD"
+            BlueprintIdentifier = "FE4AB5F71DCD88870074C504"
             BuildableName = "Calculator.app"
             BlueprintName = "Calculator"
             ReferencedContainer = "container:Calculator.xcodeproj">

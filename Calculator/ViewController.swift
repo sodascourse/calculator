@@ -9,56 +9,98 @@
 import UIKit
 import CalculatorCore
 
+
+extension Double {
+
+    /// A formatted string representation by stripping tail `.` and `0`.
+    /// For value which is an integer, like `2.0`, this representation would be `"2"`.
+    /// Other values would be just the same string. Like `2.4` would be still `"2.4"`.
+    fileprivate var displayString: String {
+        let floor = self.rounded(.towardZero)  // or just `Int(self)`
+        let string = String(self)
+        if self.distance(to: floor).isZero {  // Like "2.0" --> "2"
+            let indexOfDot = string.index(string.endIndex, offsetBy: -2)
+            return string.substring(to: indexOfDot)
+        } else {
+            return string
+        }
+    }
+}
+
+
+// MARK: Main Body
+
 class ViewController: UIViewController {
 
-    var core: Core<Float>!
-    func resetCore() {
-        self.core = Core()
+    var core = Core<Double>()
+
+    @IBOutlet weak var displayLabel: UILabel!
+
+    var currentNumber: Double {
+        let currentText = self.displayLabel.text ?? "0"
+        return Double(currentText)!
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.resetCore()
-    }
-    
-    @IBOutlet weak var displayLabel: DisplayLabel!
+    // MARK: - View Controller Setup
 
-    @IBAction func numericButtonClicked(sender: UIButton) {
-        if sender.tag >= 1000 && sender.tag < 1010 {
-            self.displayLabel.append(sender.tag - 1000)
-        } else if sender.tag == 1010 {
-            self.displayLabel.append(0)
-            self.displayLabel.append(0)
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
+    // MARK: - Input
+
+    @IBAction func numericButtonClicked(_ sender: UIButton) {
+        let numericButtonDigit = sender.tag - 1000
+        let currentText = self.displayLabel.text ?? "0"
+        if currentText == "0" {
+            self.displayLabel.text = "\(numericButtonDigit)"
+        } else {
+            self.displayLabel.text = currentText + String(numericButtonDigit)
         }
     }
 
-    @IBAction func negativeButtonClicked(sender: UIButton) {
-        self.displayLabel.changeSign()
+    @IBAction func doubleZeroButtonClicked(_ sender: UIButton) {
+        let currentText = self.displayLabel.text ?? "0"
+        guard currentText != "0" else {
+            return
+        }
+        self.displayLabel.text = currentText + "00"
     }
 
-    @IBAction func operatorButtonClicked(sender: UIButton) {
-        try! self.core.addStep(self.displayLabel.floatValue)
+    @IBAction func dotButtonClicked(_ sender: UIButton) {
+        let currentText = self.displayLabel.text ?? "0"
+        guard !currentText.contains(".") else {
+            return
+        }
+        self.displayLabel.text = currentText + "."
+    }
 
-        switch (sender.titleForState(.Normal)!) {
-        case "+":
+    @IBAction func clearButtonClicked(_ sender: UIButton) {
+        self.displayLabel.text = "0"
+        self.core = Core<Double>()
+    }
+
+    // MARK: - Actions
+
+    @IBAction func operatorButtonClicked(_ sender: UIButton) {
+        try! self.core.addStep(self.currentNumber)
+        self.displayLabel.text = "0"
+
+        switch sender.tag {
+        case 1101: // Add
             try! self.core.addStep(+)
-        case "-":
+        case 1102: // Sub
             try! self.core.addStep(-)
         default:
-            break
+            fatalError("Unknown operator button: \(sender)")
         }
-
-        self.displayLabel.clear()
     }
 
-    @IBAction func calculateButtonClicked(sender: UIButton) {
-        try! self.core.addStep(self.displayLabel.floatValue)
-        self.displayLabel.floatValue = try! self.core.calculate()
-        self.resetCore()
-    }
+    @IBAction func calculateButtonClicked(_ sender: UIButton) {
+        try! self.core.addStep(self.currentNumber)
+        let result = self.core.calculate()!
 
-    @IBAction func resetButtonClicked(sender: UIButton) {
-        self.resetCore()
-        self.displayLabel.clear()
+        self.displayLabel.text = result.displayString
+        self.core = Core<Double>()
     }
 }
