@@ -6,11 +6,11 @@
 //  Copyright © 2016 sodas. All rights reserved.
 //
 
-public enum Error: Swift.Error {
+public enum _Error: Swift.Error {
     case invalidStepOrder
 }
 
-public enum Step<Operand, Operator> {
+public enum _Step<Operand, Operator> {
     case operand(Operand)
     case `operator`(Operator)
 }
@@ -18,8 +18,8 @@ public enum Step<Operand, Operator> {
 public struct Core<Value> {
     public typealias Operand = Value
     public typealias Operator = (Value, Value) -> Value
-    public typealias Step = CalculatorCore.Step<Operand, Operator>
-    public typealias Error = CalculatorCore.Error
+    public typealias Step = _Step<Operand, Operator>
+    public typealias Error = _Error
 
     private var steps = [Step]()
 
